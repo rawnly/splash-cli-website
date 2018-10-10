@@ -1,0 +1,24 @@
+{
+  "name": "splash-website",
+  "version": "1.0.1",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "start": "next start",
+    "build": "next build",
+    "start.server": "./server.js"
+  },
+  "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
+    "express": "^4.16.3",
+    "got": "^9.2.2",
+    "isomorphic-fetch": "^2.2.1",
+    "jsdom": "^12.2.0",
+    "next": "^7.0.1",
+    "node-sass": "^4.9.3",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-scrollable-anchor": "^0.6.1",
+    "typed.js": "^2.0.9"
+  }
+}
