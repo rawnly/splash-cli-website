@@ -1,0 +1,78 @@
+$mainColor: #1d1d1d;
+
+.icon {
+    max-width: 30px;
+    max-height: 30px;
+
+    position: relative;
+}
+
+nav {
+    font-family: 'Nunito', sans-serif;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    display: flex;
+
+    ul:last-child {
+        margin-left: auto;
+    }
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    background: none;
+
+    list-style-type: none;
+
+    li {
+        color: #333;
+        padding: 15px;
+        font-weight: bolder;
+
+        &.disabled a {
+            cursor: not-allowed;
+            opacity: 0.2;
+        }
+
+        &.left {
+            margin-right: auto;
+        }
+
+        a {            
+            text-decoration: none;
+            color: #333;
+            transition: all 200ms ease-in-out;
+            
+            &:hover {
+                color: #111;
+                text-decoration: none;
+            }
+            
+            &:visited {
+                color: inherit;
+            }
+
+            &.button {
+                padding: 5px 10px;
+                border-radius: 5px;
+                background: #333;
+                color: white;
+                
+                &:hover {
+                    color: white;
+                    background: #111;
+                }
+            }
+        }
+    }
+}

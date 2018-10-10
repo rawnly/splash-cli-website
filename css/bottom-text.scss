@@ -1,0 +1,27 @@
+.bottom-text {
+    position: absolute;
+    bottom: 0px;
+    
+    &.left {
+        left: 0px;
+    }
+
+    &.right {
+        right: 0px;
+    }
+
+    padding: 15px;
+    opacity: .5;
+    color: #ffffff;
+    font-weight: bold;
+    font-family: 'Nunito', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    transition: all 200ms ease-in-out;
+    text-decoration: none;
+
+    &:hover {
+        cursor: pointer;
+        opacity: .8;
+        text-decoration: none;
+    }
+}
