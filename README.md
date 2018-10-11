@@ -1,4 +1,4 @@
-# Splash CLI Website
+# Splash CLI Website
 
 <p align="center">
     <a href="https://splash-cli.now.sh">
