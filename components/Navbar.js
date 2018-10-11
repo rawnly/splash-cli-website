@@ -1,30 +1,56 @@
 import { Component } from 'react';
 
 import '../css/navbar.scss';
+
+import Link from 'next/link';
 import LinkSmoothScroll from './LinkSmoothScroll';
 
-class Navbar extends Component {
-    render () {
+const NavbarItem = props => (
+    <li className={props.options.disabled ? 'disabled' : ''}>
+        {
+            props.options.anchor ?  (
+                    <LinkSmoothScroll href={'/' + props.options.href}>{props.options.text}</LinkSmoothScroll>
+            ) : (
+                    props.options.disabled ? 
+                        <a onClick={e => e.preventDefault()}>{props.options.text}</a> 
+                    : 
+                    <Link href={props.options.href}>
+                        <a className={props.options.button ? 'button' : ''}>{props.options.text}</a>
+                    </Link>
+                )
+            }
+    </li>
+)
 
+export default class Navbar extends Component {
+    constructor (props) {
+        super(props);
+
+        this.state = {
+            rightItems: [],
+            leftItems: []
+        }
+    }
+
+    componentDidMount() {
+        this.setState({
+            rightItems: this.props.items.filter(item => item.right),
+            leftItems: this.props.items.filter(item => !item.right)
+        })
+    }
+
+    render() {
         return (
-            <nav>
+            <nav style={{
+                zIndex: 9999
+            }}>
                 <ul>
-                    <li>
-                        <LinkSmoothScroll href="/#install"> Install </LinkSmoothScroll>
-                    </li>
+                    {this.state.leftItems.map(item => <NavbarItem options={item} />)}
                 </ul>
                 <ul>
-                    <li className="disabled">
-                        <a href="#" onClick={(e) => e.preventDefault()} title="Launching SOON" name="Launching SOON">Product Hunt</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/splash-cli/splash-cli" className="button">Github</a>
-                    </li>
+                    {this.state.rightItems.map(item => <NavbarItem options={item} />)}
                 </ul>
             </nav>
         )
-
     }
 }
-
-export default Navbar;
