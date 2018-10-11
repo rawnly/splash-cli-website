@@ -3,6 +3,22 @@ import { Credit, Navbar, Version, License, Typed as TypedComponent, Head } from 
 
 import '../css/master.scss';
 
+const navbarItems = [{
+    text: 'Install',
+    anchor: true,
+    href: '#install'
+}, {
+    right: true,
+    text: 'Product Hunt',
+    disabled: true,
+    href: '#'
+}, {
+    right: true,
+    text: 'Github',
+    button: true,
+    href: 'https://github.com/splash-cli/splash-cli'
+}]
+
 
 class IndexPage extends Component {
     constructor(props) {
@@ -16,7 +32,7 @@ class IndexPage extends Component {
                 <Head />
                 <section className="container">
                     <div className="content">
-                        <Navbar />
+                        <Navbar items={navbarItems}/>
                         <h1 id="splash-title"> <span>just type</span> <span>splash</span> <span>that's it</span> </h1>
                         <div className="terminal"></div>
                         <Version />
@@ -27,9 +43,9 @@ class IndexPage extends Component {
                             </Credit>
                         </div>
                     </div>
-                    <div className="background"></div>
+                    <div className="background smooth"></div>
                 </section>
-                <section className="container">
+                <section className="container small center">
                     <pre className="fake-term">
                         <TypedComponent strings={[
                             `<span class="dollar">$</span> <span class="cmd">npm</span> install --global <b>splash-cli</b>\n<span class="dollar">$</span> ^800<span class="comment"># or</span> \n<span class="dollar">$</span> ^500<span class="cmd">yarn</span> global add <b>splash-cli</b>\n<span class="dollar">$</span> ^800<span class="comment"># Isn't that easy?</span> ^3500`,
