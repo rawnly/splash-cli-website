@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    > p {
+        text-align: justify;
+        max-width: 700px;
+        width: 80vw;
+        letter-spacing: 1px;
+
+        b {
+            line-height: 25px;
+        }
+    }
+}
