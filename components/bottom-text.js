@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import Link from 'next/link';
 
 import '../css/bottom-text.scss';
 
@@ -29,6 +30,10 @@ export class License extends Component {
     }
 
     render() {
-        return <a href="https://github.com/splash-cli/splash-cli/LICENSE.md" className="bottom-text right"> {this.state.license} </a>
+        return (
+            <Link href="/license">
+                <a className="bottom-text right"> {this.state.license} </a>
+            </Link>
+        )
     }
 }
