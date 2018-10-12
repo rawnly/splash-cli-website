@@ -10,8 +10,7 @@ const navbarItems = [{
 }, {
     right: true,
     text: 'Product Hunt',
-    disabled: true,
-    href: '#'
+    href: 'https://producthunt.com/posts/splash-cli'
 }, {
     right: true,
     text: 'Github',
