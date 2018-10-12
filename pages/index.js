@@ -1,9 +1,11 @@
 import { Component } from 'react';
+import Banner from '../components/ProdcutHuntBanner';
 import { Credit, Navbar, Version, License, Typed as TypedComponent, Head } from '../components'
+
 
 import '../css/master.scss';
 
-const navbarItems = [{
+let navbarItems = [{
     text: 'Install',
     anchor: true,
     href: '#install'
@@ -22,13 +24,17 @@ const navbarItems = [{
 class IndexPage extends Component {
     constructor(props) {
         super(props);
-        this.state = {}
+
+        this.state = {
+            isHunter: props.url.query.ref === 'producthunt'
+        }
     }
 
     render() {
         return (
             <div>
                 <Head />
+                <Banner show={this.state.isHunter}/>
                 <section className="container">
                     <div className="content">
                         <Navbar items={navbarItems}/>
