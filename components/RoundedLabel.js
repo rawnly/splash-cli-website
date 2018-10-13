@@ -16,11 +16,11 @@ const style = {
     }
 }
 
-export default class Credit extends Component {
+export default class RoundedLabel extends Component {
     render() {
         return (
-            <div style={style.container} className="fadeInBottom">
-                <p style={style.paragraph}> {this.props.children} </p>
+            <div className={this.props.className} style={{ ...style.container, background: this.props.background }}>
+                <p style={{ ...style.paragraph, color: this.props.color }}> {this.props.children} </p>
             </div>
         )
     }
