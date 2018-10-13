@@ -4,6 +4,8 @@
     align-items: center;
     flex-direction: column;
     -webkit-flex-direction: column;
+    
+    text-align: justify !important;
 
     > p {
         text-align: justify;

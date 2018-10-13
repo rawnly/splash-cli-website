@@ -155,6 +155,8 @@ h1#splash-title {
 
 .container.center {
     @extend %centerContent;
+    flex-direction: column;
+    -webkit-flex-direction: column;
 }
 
 .container.small {
