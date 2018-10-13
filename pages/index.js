@@ -1,7 +1,7 @@
 import { Component } from 'react';
 
 import {
-    Credit,
+    RoundedLabel,
     Navbar,
     Version,
     License,
@@ -19,6 +19,9 @@ const navbarItems = [{
     anchor: true,
     href: '#install'
 }, {
+    text: 'docs',
+    href: '/docs'
+}, {
     right: true,
     text: 'Product Hunt',
     href: 'https://producthunt.com/posts/splash-cli'
@@ -35,16 +38,23 @@ class IndexPage extends AnalyticsPage {
         super(props);
 
         this.state = {
-            isHunter: props.url.query.ref === 'producthunt'
+            isHunter: props.url.query.ref === 'producthunt',
+            isGitUser: props.url.query.ref === 'github',
         }
     }
-
 
     render() {
         return (
             <div>
                 <Head />
-                <Banner show={this.state.isHunter}/>
+                <Banner show={this.state.isHunter} background="#da552f" color="#F8F6F7">
+                    Hello <b>Hunter</b>! Thank you for having checked <a href="https://github.com/splash-cli/splash-cli">Splash CLI</a> 🎉
+                </Banner>
+
+                <Banner show={this.state.isGitUser} background="#1d1d1d" color="#F8F6F7">
+                    Hello! Thank you for having checked <a href="https://github.com/splash-cli/splash-cli">Splash CLI</a> 🎉
+                </Banner>
+
                 <section className="container">
                     <div className="content">
                         <Navbar items={navbarItems}/>
@@ -53,14 +63,15 @@ class IndexPage extends AnalyticsPage {
                         <Version />
                         <License />
                         <div className="credits">
-                            <Credit>
+                            <RoundedLabel background="white" color="#1d1d1d" className="fadeInBottom">
                                 📸 by <a target="_blank" href="https://unsplash.com/@tiago">Tiago Muraro</a> on <a target="_blank" href="https://unsplash.com"> Unsplash</a>
-                            </Credit>
+                            </RoundedLabel>
                         </div>
                     </div>
                     <div className="background smooth"></div>
                 </section>
                 <section className="container small center">
+                    <small> Installation process </small>
                     <pre className="fake-term">
                         <TypedComponent strings={[
                             `<span class="dollar">$</span> <span class="cmd">npm</span> install --global <b>splash-cli</b>\n<span class="dollar">$</span> ^800<span class="comment"># or</span> \n<span class="dollar">$</span> ^500<span class="cmd">yarn</span> global add <b>splash-cli</b>\n<span class="dollar">$</span> ^800<span class="comment"># Isn't that easy?</span> ^3500`,
@@ -73,9 +84,10 @@ class IndexPage extends AnalyticsPage {
                             loop: true
                         }} />
                     </pre>
+                    <small> via <a href="https://www.npmjs.com/"> NPM </a> or <a href="https://yarnpkg.com">YARN</a> </small>
                 </section>
                 <footer id="install">
-                    <span> Brought to you with ❤️ by <a href="https://federicovitale.me">@rawnly</a> </span>
+                    <span> Brought to you with ❤️ by <a href="https://twitter.com/rawnlydev">Federico Vitale</a> </span>
                 </footer>
             </div>
         )
