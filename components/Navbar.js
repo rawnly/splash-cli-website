@@ -45,10 +45,10 @@ export default class Navbar extends Component {
                 zIndex: 9999
             }}>
                 <ul>
-                    {this.state.leftItems.map(item => <NavbarItem options={item} />)}
+                    {this.state.leftItems.map((item, index) => <NavbarItem options={item} key={index}/>)}
                 </ul>
                 <ul>
-                    {this.state.rightItems.map(item => <NavbarItem options={item} />)}
+                    {this.state.rightItems.map((item, index) => <NavbarItem options={item} key={index}/>)}
                 </ul>
             </nav>
         )

@@ -153,44 +153,6 @@ h1#splash-title {
     transform: translateX(-50%);
 }
 
-// .credits {
-//     font-family: 'Nunito', sans-serif;
-
-//     @extend %centerContent;
-
-//     background: #FFF;
-//     border-radius: 5px;
-//     border: 1px solid transparent;
-//     text-align: center;
-//     padding: 15px;
-
-//     position: absolute;
-
-//     bottom: 25px;
-//     right: 25px;
-
-//     color: $mainColor;
-
-//     #credits-text {
-//         margin: 0 auto;
-//         padding: 0;
-//         color: $mainColor;
-//         font-size: 12px;
-//         letter-spacing: -.02px;
-//     }
-
-//     a {
-//         font-weight: bold;
-//         color: $mainColor;
-        
-//         &:visited {
-//             color: $mainColor;
-//         }
-//     }
-// }
-
-
-// Fake Terminal
 .container.center {
     @extend %centerContent;
 }
@@ -204,8 +166,10 @@ h1#splash-title {
     color: white;
     padding: 25px;
     
-    width: 420px;
-    height: 150px;
+    &:not(.help-menu) {
+        width: 420px;
+        height: 150px;
+    }
     
     border-radius: 5px;
     box-shadow: 10px 8px 17px -9px rgba(29, 29, 29, 0.6);

@@ -1,11 +1,20 @@
 import { Component } from 'react';
-import Banner from '../components/ProdcutHuntBanner';
-import { Credit, Navbar, Version, License, Typed as TypedComponent, Head } from '../components'
+
+import {
+    Credit,
+    Navbar,
+    Version,
+    License,
+    Head,
+    AnalyticsPage,
+    ProductHuntBanner as Banner,
+    Typed as TypedComponent
+} from '../components'
 
 
 import '../css/master.scss';
 
-let navbarItems = [{
+const navbarItems = [{
     text: 'Install',
     anchor: true,
     href: '#install'
@@ -21,7 +30,7 @@ let navbarItems = [{
 }]
 
 
-class IndexPage extends Component {
+class IndexPage extends AnalyticsPage {
     constructor(props) {
         super(props);
 
@@ -29,6 +38,7 @@ class IndexPage extends Component {
             isHunter: props.url.query.ref === 'producthunt'
         }
     }
+
 
     render() {
         return (

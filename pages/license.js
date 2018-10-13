@@ -1,12 +1,13 @@
-import { Component } from 'react';
-import { Navbar, Head, Typed as TypedComponent } from '../components'
+import { Navbar, Head, AnalyticsPage, Typed as TypedComponent } from '../components'
 
 import Link from 'next/link'
 
 import '../css/master.scss'
 import '../css/license.scss'
 
-export default () => (
+export default class LicensePage extends AnalyticsPage {
+    render() {
+        return (
     <div>
         <Navbar items={[{
             text: 'Back',
@@ -50,3 +51,5 @@ export default () => (
         </section>
     </div>
 )
+    }
+}
