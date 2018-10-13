@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import ReactGA from 'react-ga';
 
-import CreditComponent from './Credit'
+import CreditComponent from './RoundedLabel'
 import NavbarComponent from './Navbar'
 import TypedComponent from './TypedComponent'
 import LinkSmoothScrollComponent from './LinkSmoothScroll'
@@ -15,7 +15,7 @@ import {
 
 const dev = process.env.NODE_ENV !== 'production'
 
-export const Credit = CreditComponent
+export const RoundedLabel = CreditComponent
 export const Navbar = NavbarComponent
 export const Typed = TypedComponent
 export const LinkSmoothScroll = LinkSmoothScrollComponent
