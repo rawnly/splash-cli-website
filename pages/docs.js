@@ -1,4 +1,4 @@
-import { Navbar, AnalyticsPage } from '../components'
+import { Navbar, AnalyticsPage, Head } from '../components'
 import { Dollar, Title, Command, Dimmed, FlagLine, Break } from '../components/Syntax'
 
 import '../css/master.scss'
@@ -24,12 +24,13 @@ export default class Docs extends AnalyticsPage {
     render() {
         return (
             <div>
+                <Head title="Documentation"/>
                 <Navbar items={navbarItems} />
                 <div className="container" style={{ textAlign: 'center' }}>
                     <h1> Documentation </h1>
                     <p> <b>Splash</b> is easy and quick to use, <i>just type splash</i> to get started.</p>
                     <br />
-                    <pre className="help-menu fake-term" style={{ textAlign: 'left' }}>
+                    <pre className="help-menu fake-term" style={{ textAlign: 'left', width: '80vw' }}>
                         <Break />
                         <Title text="Usage" />
                         <Dollar /> <Command>splash</Command> <Dimmed>[command] [flags]</Dimmed>
