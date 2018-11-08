@@ -167,6 +167,7 @@ h1#splash-title {
     background: $mainColor;
     color: white;
     padding: 25px;
+    margin: 0 auto;
     
     &:not(.help-menu) {
         width: 420px;

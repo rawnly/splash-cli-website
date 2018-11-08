@@ -40,11 +40,19 @@ export default class Docs extends AnalyticsPage {
                         <Title text="Commands" />
                             <FlagLine flag="settings" color="#0095ff" args="get|set|restore" hint="GET/SET/RESTORE SETTINGS" required/>
                             <FlagLine flag="alias" color="#0095ff" args="get|set|remove" hint="GET/SET/REMOVE COLLECTION ALIASES" required/>
+                            <FlagLine flag="dir" color="#0095ff" args="clean|get|count" hint="MANAGE THE DOWNLOAD DIRECTORY" required/>
+                            <FlagLine flag="user" color="#0095ff" args="login|logout|get|..." hint="MANAGE USER LOGIN/LOGOUT - GET USER INFOS" required/>
                             <Break />
 
                         <Title text="Options" />
+                            <Break />
+                            <FlagLine flag="******** MACOS ONLY *********" color="gray" />
                             <FlagLine flag="--scale" color="gold" args="auto|fill|fit|stretch|center" hint="set wallpaper scale" required/>
                             <FlagLine flag="--screen" color="gold" args="all|main|monitor" hint="set as wallpaper on selected monitor" required/>
+                            <FlagLine flag="*****************************" color="gray" />
+                            <Break />
+
+                            <Break />
                             <FlagLine flag="-s --save" color="gold" args="optional path" hint="download without setting as wallpaper"/>
                             <FlagLine flag="-i --info" color="gold" hint="show photo's exif"/>
                             <FlagLine flag="-q --quiet" color="gold" hint="no output"/>
