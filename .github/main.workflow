@@ -6,5 +6,9 @@ workflow "New workflow" {
 action "Update deployment" {
   uses = "actions/zeit-now@9fe84d5"
   runs = "now"
-  secrets = ["GITHUB_TOKEN"]
+  secrets = [
+    "GITHUB_TOKEN",
+    "ZEIT_TOKEN",
+  ]
+  args = "--token $ZEIT_TOKEN"
 }
