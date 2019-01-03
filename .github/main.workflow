@@ -10,4 +10,5 @@ action "Update deployment" {
     "GITHUB_TOKEN",
     "ZEIT_TOKEN",
   ]
+  args = "--token $ZEIT_TOKEN"
 }
