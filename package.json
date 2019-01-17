@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "next",
-    "start": "next start",
+    "start": "PORT=3002 NODE_ENV=production node server.js",
     "build": "next build",
     "start.server": "./server.js"
   },

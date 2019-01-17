@@ -9,6 +9,7 @@ const dev    = process.env.NODE_ENV !== 'production'
 const app    = next({ dev })
 const handle = app.getRequestHandler()
 
+const PORT = process.env.port || 3000;
 
 const picOfTheDay = () => new Promise((resolve, reject) => {
     got('https://unsplash.com')
@@ -55,9 +56,9 @@ app.prepare()
         server.get('*', (req, res) => handle(req, res))
 
 
-        server.listen(3000, (err) => {
+        server.listen(3002, (err) => {
             if (err) throw err
-            console.log('> Ready on http://localhost:3000')
+            console.log(`Ready on port ${3002}`)
         })
     })
     .catch((ex) => {
