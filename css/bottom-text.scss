@@ -10,9 +10,16 @@
         right: 0px;
     }
 
+    &.dark {
+        color: #1d1d1d;
+    }
+
+    &:not(.dark) {
+        color: #ffffff;
+    }
+
     padding: 15px;
     opacity: .5;
-    color: #ffffff;
     font-weight: bold;
     font-family: 'Nunito', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
