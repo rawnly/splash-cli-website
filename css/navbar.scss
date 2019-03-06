@@ -25,7 +25,7 @@ nav {
 ul {
     padding: 0;
     margin: 0;
-    
+
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -48,16 +48,16 @@ ul {
             margin-right: auto;
         }
 
-        a {            
+        a {
             text-decoration: none;
             color: #333;
             transition: all 200ms ease-in-out;
-            
+
             &:hover {
                 color: #111;
                 text-decoration: none;
             }
-            
+
             &:visited {
                 color: inherit;
             }
@@ -65,14 +65,53 @@ ul {
             &.button {
                 padding: 5px 10px;
                 border-radius: 5px;
-                background: #333;
+                background: #111;
                 color: white;
-                
+                font-size: 1em;
+                font-weight: bold;
+                position: relative;
+
                 &:hover {
                     color: white;
-                    background: #111;
+                    background: #333;
+
+                    .pop {
+                        color: #333;
+                    }
+                }
+
+                .pop {
+                    position: absolute;
+                    top: -7px;
+                    right: -7px;
+                    transform: scale(0);
+                    animation: zoomUP .15s ease-in-out forwards;
+                    animation-delay: .5s;
+                    border-radius: 50%;
+                    width: 20px;
+                    height: 20px;
+                    margin: 0;
+                    font-size: 12px;
+                    text-align: center;
+                    color: #111;
+                    background: #00ffaf;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    box-shadow: 0 0 5px -1px #00ffaf;
+
+                    &.mid {
+                        padding: 11px;
+                    }
                 }
             }
         }
+    }
+}
+
+
+@keyframes zoomUP {
+    100% {
+        transform: scale(.9);
     }
 }
