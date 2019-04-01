@@ -6,7 +6,8 @@ ssh-add .travis/id_rsa
 
 git config --global push.default matching
 git remote add deploy ssh://git@rawnly.com:22$DEPLOY_DIR
-git push origin master
+git pull origin master
+
 
 ssh root@$IP <<EOF
 	cd $DEPLOY_DIR;
