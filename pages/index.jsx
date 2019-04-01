@@ -124,6 +124,7 @@ class IndexPage extends AnalyticsPage {
 				</section>
 				<section className="container small center">
 					<small> Installation process </small>
+					<br />
 					<pre className="fake-term">
 						<TypedComponent
 							strings={[
@@ -139,8 +140,8 @@ class IndexPage extends AnalyticsPage {
 							}}
 						/>
 					</pre>
+					<br />
 					<small>
-						{" "}
 						via <a href="https://www.npmjs.com/"> NPM </a> or <a href="https://yarnpkg.com">YARN</a>{" "}
 					</small>
 				</section>

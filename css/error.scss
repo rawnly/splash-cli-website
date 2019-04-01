@@ -1,0 +1,18 @@
+.container {
+  width: 100vw;
+	height: 100vh;
+	padding: 35px;
+	background: #f4f6fc;
+
+	&.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  img {
+    max-width: 450px;
+    width: 80vw;
+  }
+}
