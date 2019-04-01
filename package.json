@@ -6,7 +6,8 @@
     "dev": "next",
     "start": "PORT=3002 NODE_ENV=production node server.js",
     "build": "next build",
-    "start.server": "./server.js"
+    "start.server": "./server.js",
+    "test": "echo \"HELLO WORLD\" && exit 0"
   },
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
