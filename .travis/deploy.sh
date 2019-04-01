@@ -8,7 +8,6 @@ git config --global push.default matching
 git remote add deploy ssh://git@rawnly.com:22$DEPLOY_DIR
 git pull origin master
 
-
 ssh root@$IP <<EOF
 	cd $DEPLOY_DIR;
 	yarn build;
