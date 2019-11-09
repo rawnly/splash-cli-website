@@ -1,35 +1,26 @@
-import Typed from "typed.js";
+import Typed from 'typed.js';
 
-import { Component } from "react";
+import { useEffect, useRef } from 'react';
 
-class TypedComponent extends Component {
-  componentDidMount() {
-    let options = {
-      strings: this.props.strings,
-      typeSpeed: 30,
-      backSpeed: 5,
-      showCursor: true,
-      cursorChar: "|",
-      smartBackspace: true,
-      loop: true
-    };
+export default (props = { options: {} }) => {
+	const typedRef = useRef();
 
-    this.typed = new Typed(this.el, Object.assign(options, this.props.options));
-  }
+	useEffect(() => {
+		const options = {
+			typeSpeed: 30,
+			backSpeed: 5,
+			showCursor: true,
+			cursorChar: '|',
+			smartBackspace: true,
+			loop: true,
+			strings: props.strings,
+			...props.options,
+		};
 
-  componentWillUnmount() {
-    this.typed.destroy();
-  }
+		const typed = new Typed(typedRef.current, options);
 
-  render() {
-    return (
-      <span
-        ref={(el) => {
-          this.el = el;
-        }}
-      />
-    );
-  }
-}
+		return () => typed.destroy();
+	});
 
-export default TypedComponent;
+	return <span ref={typedRef} />;
+};
