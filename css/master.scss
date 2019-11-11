@@ -72,7 +72,7 @@ div {
         width: 100%;
         height: 100%;
 
-        background: url("/static/background.jpg") center no-repeat / cover;
+        // background: url("/static/background.jpg") center no-repeat / cover;
         opacity: 0;
 
         z-index: 0;
@@ -132,7 +132,7 @@ h1#splash-title {
     width: 85vw;
     height: 600px;
 
-    background: url("/static/term2.png") center no-repeat / contain;
+    // background: url("/static/term2.png") center no-repeat / contain;
     // background: url("/static/terminal.png") center no-repeat / contain;
 
     margin: 0 auto;
@@ -326,4 +326,13 @@ footer {
             display: block;
         }
     }
+}
+
+p code {
+    color: red;
+    background: #fefefe;
+    padding: 5px 7px;
+    border-radius: 8px;
+    box-shadow: 2px 1px 5px -2px rgba(80, 80, 80, .25), -2px -1px 5px -2px rgba(180, 180, 180, .3);
+    margin: 0 5px;
 }
