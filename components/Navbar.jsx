@@ -11,14 +11,20 @@ const capitalize = (str) =>
 		.join(' ');
 
 const NavbarItem = (props) => (
-	<li className={props.options.disabled ? 'disabled' : ''}>
+	<li className={props.color + (props.options.disabled ? 'disabled' : '')}>
 		{props.options.anchor ? (
 			<LinkSmoothScroll href={'/' + props.options.href}>{capitalize(props.options.text)}</LinkSmoothScroll>
 		) : props.options.disabled ? (
-			<a onClick={(e) => e.preventDefault()}>{capitalize(props.options.text)}</a>
+			<a
+				style={{
+					color: props.color,
+				}}
+				onClick={(e) => e.preventDefault()}>
+				{capitalize(props.options.text)}
+			</a>
 		) : (
 			<Link href={props.options.href}>
-				<a className={props.options.button ? 'button' : ''}>
+				<a className={props.options.button ? `button` : ''}>
 					{capitalize(props.options.text)}
 					{props.options.pop > 0 && <div className="pop">{props.options.pop}</div>}
 				</a>
@@ -36,14 +42,14 @@ export default (props) => (
 			{props.items
 				.filter((e) => !e.right)
 				.map((item, index) => (
-					<NavbarItem options={item} key={index} />
+					<NavbarItem color={props.color} options={item} key={index} />
 				))}
 		</ul>
 		<ul>
 			{props.items
 				.filter((e) => e.right)
 				.map((item, index) => (
-					<NavbarItem options={item} key={index} />
+					<NavbarItem color={props.color} options={item} key={index} />
 				))}
 		</ul>
 	</nav>

@@ -14,12 +14,21 @@ import {
 import '../css/master.scss';
 import { useState, useEffect } from 'react';
 
+const authors = new Map();
+
+authors.set(1, { id: 1, name: 'Jessica Fadel', username: 'jessicalfadel', theme: 'white' });
+authors.set(2, { id: 2, name: 'Tom Öhlin', username: 'tomohlin', theme: 'white' });
+authors.set(3, { id: 3, name: 'Raul Angel', username: 'raulangel', theme: 'white' });
+authors.set(4, { id: 4, name: 'chuttersnap', username: 'chuttersnap', theme: 'white' });
+
+authors.set(5, { id: 5, name: 'Tiago Muraro', username: 'tiago', theme: 'black' });
+
 const Page = (props) => {
 	useAnalytics('UA-127454453-1');
 
 	const query = useQuery();
 	const [issues = 0, release = {}] = useGithub('splash-cli/splash-cli');
-
+	const [author, setAuthor] = useState(authors);
 	const [navbarItems, setNavbarItems] = useState([
 		{
 			text: 'Install',
@@ -57,6 +66,10 @@ const Page = (props) => {
 		);
 	}, [issues]);
 
+	useEffect(() => {
+		setAuthor(authors.get(Math.floor(Math.random() * 5) + 1));
+	}, []);
+
 	return (
 		<div>
 			<Head />
@@ -70,13 +83,22 @@ const Page = (props) => {
 
 			<section className="container">
 				<div className="content">
-					<Navbar items={navbarItems} />
+					<Navbar items={navbarItems} color={author.theme} />
 
-					<h1 id="splash-title">
+					<h1
+						id="splash-title"
+						style={{
+							color: author.theme,
+						}}>
 						<span>JUST TYPE</span> <span>SPLASH</span> <span>THAT'S IT</span>
 					</h1>
 
-					<div className="terminal" />
+					<div
+						className="terminal"
+						style={{
+							background: `url("/static/backgrounds/${author.id}/terminal.png") center no-repeat / contain`,
+						}}
+					/>
 
 					<Version isLeft version={release && release.name} />
 					<License isRight />
@@ -84,8 +106,8 @@ const Page = (props) => {
 					<div className="credits">
 						<RoundedLabel background="white" color="#1d1d1d" className="fadeInBottom">
 							📸 by{' '}
-							<a target="_blank" href="https://unsplash.com/@tiago">
-								Tiago Muraro
+							<a target="_blank" href={`https://unsplash.com/@${author.username}`}>
+								{author.name}
 							</a>{' '}
 							on{' '}
 							<a target="_blank" href="https://unsplash.com">
@@ -95,7 +117,12 @@ const Page = (props) => {
 					</div>
 				</div>
 
-				<div className="background smooth" />
+				<div
+					className="background smooth"
+					style={{
+						background: `url("/static/backgrounds/${author.id}/background.jpg") center no-repeat / cover`,
+					}}
+				/>
 			</section>
 			<section className="container small center">
 				<h3> 💾 Installation </h3>
