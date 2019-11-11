@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router';
 import { useAnalytics, useQuery, useGithub } from '../components/hooks';
 
 import {
@@ -27,6 +26,7 @@ const Page = (props) => {
 	useAnalytics('UA-127454453-1');
 
 	const query = useQuery();
+
 	const [issues = 0, release = {}] = useGithub('splash-cli/splash-cli');
 	const [author, setAuthor] = useState(authors);
 	const [navbarItems, setNavbarItems] = useState([
@@ -120,7 +120,7 @@ const Page = (props) => {
 				<div
 					className="background smooth"
 					style={{
-						background: `url("/static/backgrounds/${author.id}/background.jpg") center no-repeat / cover`,
+						background: `url("/static/backgrounds/${author.id}/background_${author.id}.jpg") center no-repeat / cover`,
 					}}
 				/>
 			</section>
