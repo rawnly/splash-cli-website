@@ -19,16 +19,15 @@ authors.set(1, { id: 1, name: 'Jessica Fadel', username: 'jessicalfadel', theme:
 authors.set(2, { id: 2, name: 'Tom Öhlin', username: 'tomohlin', theme: 'white' });
 authors.set(3, { id: 3, name: 'Raul Angel', username: 'raulangel', theme: 'white' });
 authors.set(4, { id: 4, name: 'chuttersnap', username: 'chuttersnap', theme: 'white' });
-
 authors.set(5, { id: 5, name: 'Tiago Muraro', username: 'tiago', theme: 'black' });
 
 const Page = (props) => {
 	useAnalytics('UA-127454453-1');
-
+	const author = authors.get(Math.floor(Math.random() * 5) + 1);
 	const query = useQuery();
 
 	const [issues = 0, release = {}] = useGithub('splash-cli/splash-cli');
-	const [author, setAuthor] = useState(authors);
+//	const [author, setAuthor] = useState();
 	const [navbarItems, setNavbarItems] = useState([
 		{
 			text: 'Install',
@@ -65,11 +64,11 @@ const Page = (props) => {
 			),
 		);
 	}, [issues]);
-
+/*
 	useEffect(() => {
 		setAuthor(authors.get(Math.floor(Math.random() * 5) + 1));
 	}, []);
-
+*/
 	return (
 		<div>
 			<Head />
