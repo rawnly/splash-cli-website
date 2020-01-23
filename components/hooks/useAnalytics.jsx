@@ -1,18 +1,29 @@
 import ReactGA from 'react-ga';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
+export const useReactGA = (trackingId, config) => {
+	const [initialized, setInitialized] = useState(false);
+
+	if (!initialized) {
+		ReactGA.initialize(trackingId, config);
+		setInitialized(true);
+	}
+
+	return ReactGA;
+};
 
 /**
- * @param analyticsId String
+ * @param trackingId String
+ * @param config Object
  */
-export default (analyticsId) => {
+export default (trackingId, config) => {
 	const router = useRouter();
-	const debug = process.env.NODE_ENV !== 'production';
+	const analytics = useReactGA(trackingId, config);
 
 	useEffect(() => {
 		try {
-			ReactGA.initialize(analyticsId, { debug });
-			ReactGA.pageview(router.pathname);
+			analytics.pageview(router.asPath || router.pathname);
 		} catch (e) {
 			console.error(e);
 		}
