@@ -95,7 +95,7 @@ const Page = (props) => {
 					<div
 						className="terminal"
 						style={{
-							background: `url("/static/backgrounds/${author.id}/terminal.png") center no-repeat / contain`,
+							background: `url("/static/backgrounds/${author.id}/terminal.png") center / contain`,
 						}}
 					/>
 
@@ -119,7 +119,7 @@ const Page = (props) => {
 				<div
 					className="background smooth"
 					style={{
-						background: `url("/static/backgrounds/${author.id}/background_${author.id}.jpg") center no-repeat / cover`,
+						background: `url("/static/backgrounds/${author.id}/background_${author.id}.jpg") center / cover`,
 					}}
 				/>
 			</section>
