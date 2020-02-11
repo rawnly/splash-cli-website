@@ -22,11 +22,16 @@ const NavbarItem = (props) => (
 				onClick={(e) => e.preventDefault()}>
 				{capitalize(props.options.text)}
 			</a>
+		) : props.options.href.includes('http') ? (
+			<a href={props.options.href} target='_blank' className={props.options.button ? `button` : ''}>
+				{capitalize(props.options.text)}
+				{props.options.pop > 0 && <div className='pop'>{props.options.pop}</div>}
+			</a>
 		) : (
 			<Link href={props.options.href}>
 				<a className={props.options.button ? `button` : ''}>
 					{capitalize(props.options.text)}
-					{props.options.pop > 0 && <div className="pop">{props.options.pop}</div>}
+					{props.options.pop > 0 && <div className='pop'>{props.options.pop}</div>}
 				</a>
 			</Link>
 		)}

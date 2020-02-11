@@ -8,6 +8,7 @@
 		"build": "next build"
 	},
 	"dependencies": {
+		"@codefund/react-api-hook": "^0.0.1",
 		"@types/node": "^12.12.7",
 		"@types/react": "^16.9.11",
 		"@zeit/next-sass": "^1.0.1",
