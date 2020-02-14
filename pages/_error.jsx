@@ -1,7 +1,7 @@
-import Navbar from "../components/Navbar";
-import { Fragment, Component } from "react";
+import Navbar from '../components/Navbar';
+import { Fragment, Component } from 'react';
 
-import "../css/master.scss";
+import '../css/master.scss';
 
 export default class ErrorPage extends Component {
 	static async getInitialProps({ res, err }) {
@@ -15,31 +15,47 @@ export default class ErrorPage extends Component {
 				<Navbar
 					items={[
 						{
-							text: "Back",
-							href: "/",
+							text: 'Back',
+							href: '/',
 						},
 					]}
 				/>
-				<div className="container center">
-					{this.props.statusCode && this.props.statusCode >= 400 ? (
-						<img src={`/static/errors/${this.props.statusCode == 404 ? "404_.svg" : "500_.svg"}`} alt="ErrorPage" />
-					) : (
-						<img src={`/static/errors/client_error.svg`} alt="ClientError" />
-					)}
-
-					<h1>
-						{this.props.statusCode
-							? `An error ${this.props.statusCode} occurred on the server`
-							: "An error occurred on the client"}
-					</h1>
+				<div
+					className='container center'
+					style={{
+						background: `url('https://images.unsplash.com/gifs/weird/weird-${Math.floor(Math.random() * 15) +
+							1}.gif') no-repeat center / cover`,
+						color: 'white',
+					}}>
+					<div
+						className='center'
+						style={{
+							background: 'rgba(0, 0, 0, .25)',
+							position: 'fixed',
+							top: 0,
+							left: 0,
+							width: '100%',
+							height: '100%',
+							zIndex: 0,
+						}}>
+						<h1>
+							{this.props.statusCode
+								? `An error ${this.props.statusCode} occurred on the server`
+								: 'An error occurred on the client'}
+						</h1>
+					</div>
 				</div>
 				<style jsx>
-				{`
-					img {
-						max-width : 950px;
-						width : 80vw;
-					}
-				`}
+					{`
+						img {
+							max-width: 950px;
+							width: 80vw;
+						}
+
+						h1 {
+							zindex: 1;
+						}
+					`}
 				</style>
 			</Fragment>
 		);
