@@ -28,8 +28,10 @@ export default class ErrorPage extends Component {
 						color: 'white',
 					}}>
 					<div
-						className='center'
 						style={{
+							display: 'flex',
+							justifyContent: 'center',
+							alignItems: 'center',
 							background: 'rgba(0, 0, 0, .25)',
 							position: 'fixed',
 							top: 0,
@@ -38,11 +40,7 @@ export default class ErrorPage extends Component {
 							height: '100%',
 							zIndex: 0,
 						}}>
-						<h1>
-							{this.props.statusCode
-								? `An error ${this.props.statusCode} occurred on the server`
-								: 'An error occurred on the client'}
-						</h1>
+						<h1>{this.props.statusCode ? `Error ${this.props.statusCode}` : 'An error occurred on the client'}</h1>
 					</div>
 				</div>
 				<style jsx>
