@@ -11,9 +11,17 @@ class Github {
 		this.client_secret = client_secret;
 	}
 
+	getAuthenticationHeaders = () => {
+		const token = Buffer.from(`${this.client_id}:${this.client_secret}`).toString('base64');
+		
+		return { 'Authorization': `Basic ${token}` }
+	}
+	
+	getAuthenticated = (url) => fetch(url, { headers: getAuthenticationHeaders() });
+
 	getRepo = async (repo) => {
 		try {
-			const response = await fetch(
+			const response = await getAuthenticated(
 				`https://api.github.com/repos/${repo}?client_id=${this.client_id}&client_secret=${this.client_secret}`,
 			);
 
@@ -30,7 +38,7 @@ class Github {
 
 	getRepoRelease = async (repo, release = 'latest') => {
 		try {
-			const response = await fetch(
+			const response = await getAuthenticated(
 				`https://api.github.com/repos/${repo}/releases/${release}?client_id=${this.client_id}&client_secret=${this.client_secret}`,
 			);
 
