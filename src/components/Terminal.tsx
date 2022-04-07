@@ -123,10 +123,10 @@ const Terminal: FC<ITerminalProps> = ( props ) => {
 	}, [] )
 
 
-	// useEffect( () => {
-	// 	resetState()
-	// 	startIntro()
-	// }, [] )
+	useEffect( () => {
+		resetState()
+		startIntro()
+	}, [] )
 
 	useEffect( () => {
 		inputRef.current?.focus()
