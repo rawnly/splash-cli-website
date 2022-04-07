@@ -2,6 +2,7 @@ import { GitHubLogoIcon } from '@radix-ui/react-icons'
 import { NextPage } from 'next'
 import CopyButton from '../components/CopyButton'
 import Terminal from '../components/Terminal'
+import useAnalytics from '../hooks/useAnalytics'
 import useClipboard from '../hooks/useClipboard'
 import { usePhotoContext } from '../lib/state'
 
@@ -9,6 +10,8 @@ import { usePhotoContext } from '../lib/state'
 const Page: NextPage = _ => {
   const photo = usePhotoContext( s => s.photo )
   const [copy, isCopied] = useClipboard()
+
+  useAnalytics()
 
   return (
     <>
