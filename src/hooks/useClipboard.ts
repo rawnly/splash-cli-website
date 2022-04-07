@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
+import splitbee from '@splitbee/web'
 
 type UseClipboard = [
 	( text: string ) => void,
@@ -15,6 +16,9 @@ const useClipboard = (): UseClipboard => {
 
 		await navigator.clipboard.writeText( text );
 		setCopied( true )
+
+		splitbee
+			.track( 'copy-to-clipboard', { value: 1 } )
 	}, [] )
 
 	useEffect( () => {

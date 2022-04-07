@@ -1,5 +1,6 @@
 import React, { FC, useCallback, useEffect, useRef, useState } from "react";
 import { match } from 'ts-pattern';
+import splitbee from '@splitbee/web'
 
 import { wait } from '../lib/util';
 import { addLine, infiniteSpinner, fixedSpinner } from '../lib/terminal'
@@ -139,6 +140,7 @@ const Terminal: FC<ITerminalProps> = ( props ) => {
 		setInputValue( '' )
 
 		const [command, ...flags] = inputValue.split( ' ' )
+		splitbee.track( 'terminal-command', { value: command.trim() } )
 
 		switch ( command.trim() ) {
 			case 'clear':
