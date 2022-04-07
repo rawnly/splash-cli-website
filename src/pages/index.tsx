@@ -5,7 +5,7 @@ import Terminal from '../components/Terminal'
 import useAnalytics from '../hooks/useAnalytics'
 import useClipboard from '../hooks/useClipboard'
 import { usePhotoContext } from '../lib/state'
-
+import { NextSeo } from 'next-seo'
 
 const Page: NextPage = _ => {
   const photo = usePhotoContext( s => s.photo )
@@ -15,6 +15,16 @@ const Page: NextPage = _ => {
 
   return (
     <>
+      <NextSeo
+        titleTemplate='Splash CLI - %s'
+        title='Beautiful wallpapers from unsplash'
+        description='A simple, command line tool to download Unsplash wallpapers. It’s not intended to be anything particularly fancy — it just works.'
+        defaultTitle='Splash CLI'
+        twitter={{
+          handle: '@fedevitaledev',
+          site: 'https://splash-cli.app'
+        }}
+      />
       <section className="flex relative items-center flex-col justify-center w-screen min-h-[100vh] bg-white text-mauve-12 dark:text-mauveDark-12 dark:bg-black rx-text-mauve-12">
         <div className='text-center space-y-4'>
           <h1 className='text-5xl font-bold'>
