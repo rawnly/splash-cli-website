@@ -12,7 +12,7 @@ const Page: NextPage = _ => {
 
   return (
     <>
-      <section className="flex relative items-center flex-col justify-center w-screen min-h-[100vh] bg-white dark:bg-black rx-text-mauve-12">
+      <section className="flex relative items-center flex-col justify-center w-screen min-h-[100vh] bg-white text-mauve-12 dark:text-mauveDark-12 dark:bg-black rx-text-mauve-12">
         <div className='text-center space-y-4'>
           <h1 className='text-5xl font-bold'>
             Splash CLI
