@@ -64,7 +64,7 @@ const Page: NextPage = _ => {
           </p>
         </div>
 
-        <div className='flex justify-center items-center gap-4 pt-6 pb-16'>
+        <div className='flex flex-wrap justify-center items-center gap-4 pt-6 pb-16'>
           <CopyButton copied={isCopied} onClick={() => copy( 'npm install -g splash-cli' )}>
             npm install -g splash-cli
           </CopyButton>
