@@ -17,3 +17,8 @@
 .caret {
 	animation: caretAnimation 400ms ease-in-out infinite alternate;
 }
+
+html,
+body {
+  @apply bg-base text-metal;
+}

@@ -8,6 +8,14 @@ module.exports = {
       white: 'white',
       black: 'black',
       transparent: 'transparent',
+      base: '#0F1014',
+      metal: '#fdfdfe',
+      stone: '#9898a6',
+      overlay: '#131317',
+      kashmir: '#626983',
+      focus: {
+        medium: '#1A1B1F',
+      }
     }
   },
   plugins: [
