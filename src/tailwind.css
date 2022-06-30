@@ -22,3 +22,8 @@ html,
 body {
   @apply bg-base text-metal;
 }
+
+*::selection { 
+  background: rgba( 197, 143, 255, .5 );
+  @apply text-base;
+}
