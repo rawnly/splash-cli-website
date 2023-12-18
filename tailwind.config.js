@@ -1,7 +1,7 @@
 const radixColors = require('tailwind-radix-colors')
 
 module.exports = {
-  content: ['./src/pages/**/*.{tsx,js,jsx,ts}', './src/components/**/*.{tsx,js,jsx,ts}'],
+  content: ['./src/**/*.{tsx,js,jsx,ts}'],
   theme: {
     colors: {
       ...radixColors.colors,

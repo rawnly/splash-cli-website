@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import {GitHubLogoIcon} from '@radix-ui/react-icons'
 import { FC, PropsWithChildren } from 'react'
 import clsx from 'clsx'
@@ -5,7 +6,7 @@ import clsx from 'clsx'
 interface IGithubButtonProps {}
 
 const GithubButton: FC<IGithubButtonProps> = () => (
-  <a
+  <Link
     href='https://github.com/splash-cli/splash-cli' 
     target={'_blank'} 
     className={clsx(
@@ -18,7 +19,7 @@ const GithubButton: FC<IGithubButtonProps> = () => (
     )}>
     <GitHubLogoIcon />
     <span>Github</span>
-  </a>
+  </Link>
 )
 
 GithubButton.displayName = 'GithubButton'

@@ -1,18 +1,32 @@
+'use client'
+
 import React, { forwardRef } from "react";
 import { CopyIcon, CheckIcon } from '@radix-ui/react-icons'
+import useClipboard from "../hooks/useClipboard";
+import clsx from 'clsx'
 
-interface ICopyButtonProps {
-	onClick?(): void
-	copied?: boolean
+interface Props {
+	command: string
+	children: React.ReactNode
 }
 
-const CopyButton = forwardRef<HTMLButtonElement, React.PropsWithChildren<ICopyButtonProps>>( ( props, ref ) => (
-  <button ref={ref} onClick={props.onClick} className='px-4 tabular-nums flex gap-4 items-center justify-between font-mono text-sm transform-gpu active:scale-[.98] py-2.5 cursor-pointer duration-150 transition-all border border-kashmir/25 hover:border-kashmir/50 active:border-kashmir/10 rounded-md text-mauveDark-12'>
-    <pre><span className='opacity-50 text-kashmir'>$</span> {props.children}</pre>
-		{!props.copied ? <CopyIcon className='ml-2' /> : <CheckIcon className='ml-2' />}
-	</button>
-) )
+function CopyButton ( props: Props )  {
+  const [copy, isCopied] = useClipboard()
 
-CopyButton.displayName = 'CopyButton'
+
+	return (
+  	<button 
+  		onClick={() => copy(props.command)}
+  		className={clsx(
+  			"flex gap-4 justify-between items-center py-2.5 px-4 font-mono text-sm tabular-nums rounded-md border transition-all duration-150",
+  			"transform-gpu cursor-pointer border-kashmir/25 text-mauveDark-12 hover:border-kashmir/50 active:scale-[.98] active:border-kashmir/10"
+  		)}
+  		>
+    	<pre><span className='opacity-50 text-kashmir'>$</span> {props.children}</pre>
+			{!isCopied ? <CopyIcon className='ml-2' /> : <CheckIcon className='ml-2' />}
+		</button>
+	)
+} 
+
 
 export default CopyButton;
