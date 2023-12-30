@@ -1,33 +1,34 @@
-import { useCallback, useEffect, useState } from 'react'
-import splitbee from '@splitbee/web'
+import { useCallback, useEffect, useState } from "react";
+import { usePostHog } from 'posthog-js/react'
 
-type UseClipboard = [
-	( text: string ) => void,
-	boolean
-]
+const useClipboard = () => {
+	const [copied, setCopied] = useState(false);
+	const posthog = usePostHog()
 
+	const copyToClipboard = useCallback(async (text: string) => {
+		if (typeof window === "undefined") return null;
+		if (!navigator.clipboard) return;
 
-const useClipboard = (): UseClipboard => {
-	const [copied, setCopied] = useState( false )
+		try {
+			await navigator.clipboard.writeText(text);
+			setCopied(true);
 
-	const copyToClipboard = useCallback( async ( text: string ) => {
-		if ( typeof window === 'undefined' ) return null
-		if ( !navigator.clipboard ) return
+			posthog.capture('copy-to-clipboard', {
+				$value: text
+			})
+		} catch (e) {
+			console.error(e)
+		}
+	}, [posthog]);
 
-		await navigator.clipboard.writeText( text );
-		setCopied( true )
+	useEffect(() => {
+		if (!copied) return;
 
-		splitbee
-			.track( 'copy-to-clipboard', { value: 1 } )
-	}, [] )
+		const timeout = setTimeout(() => setCopied(false), 1000);
+		return () => clearTimeout(timeout);
+	}, [copied]);
 
-	useEffect( () => {
-		const timeout = setTimeout( () => setCopied( false ), 1000 )
-		return () => clearTimeout( timeout )
-	}, [copied] )
+	return [copyToClipboard, copied] as const;
+};
 
-	return [copyToClipboard, copied]
-}
-
-
-export default useClipboard
+export default useClipboard;

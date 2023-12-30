@@ -11,10 +11,9 @@
   "dependencies": {
     "@radix-ui/colors": "^3.0.0",
     "@radix-ui/react-icons": "^1.3.0",
-    "@splitbee/web": "^0.3.0",
-    "axios": "^1.6.2",
     "clsx": "^2.0.0",
     "next": "^14.0.4",
+    "posthog-js": "^1.96.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwind-radix-colors": "^0.0.11",
